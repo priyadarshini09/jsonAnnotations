@@ -1,11 +1,14 @@
 package guru.springframework.blog.gson.domain;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import guru.springframework.blog.gson.custom.CustomProductDeserialization;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import guru.springframework.blog.gson.custom.CustomProductDeserializer;
+import guru.springframework.blog.gson.custom.CustomProductSerializer;
 
 import java.math.BigDecimal;
 
-@JsonDeserialize(using = CustomProductDeserialization.class)
+@JsonSerialize(using = CustomProductSerializer.class)
+@JsonDeserialize(using = CustomProductDeserializer.class)
 public class Product {
     private String productId;
     private String description;

@@ -1,25 +1,23 @@
-/*
 package guru.springframework.blog.gson.custom;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import guru.springframework.blog.gson.domain.Product;
 
-
-import java.lang.reflect.Type;
+import java.io.IOException;
 import java.math.RoundingMode;
 
-public class CustomProductSerializer implements JsonSerializer<Product> {
+public class CustomProductSerializer extends JsonSerializer<Product>{
+
     @Override
-    public JsonElement serialize(Product product, Type type, JsonSerializationContext jsonSerializationContext) {
-        JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty("product-id", product.getProductId());
-        jsonObject.addProperty("description", product.getDescription());
-        jsonObject.addProperty("image-url", product.getImageUrl());
-        jsonObject.addProperty("price", product.getPrice().setScale(2, RoundingMode.HALF_UP));
-        return jsonObject;
+    public void serialize(Product product, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
+        jsonGenerator.writeStartObject();
+        jsonGenerator.writeStringField("product-id", product.getProductId());
+        jsonGenerator.writeStringField("description", product.getDescription());
+        jsonGenerator.writeStringField("image-url", product.getImageUrl());
+        jsonGenerator.writeNumberField("price", product.getPrice().setScale(2, RoundingMode.HALF_UP));
+        jsonGenerator.writeEndObject();
     }
 }
-*/
