@@ -18,6 +18,7 @@ public class CustomProductSerializer extends JsonSerializer<Product>{
         jsonGenerator.writeStringField("description", product.getDescription());
         jsonGenerator.writeStringField("image-url", product.getImageUrl());
         jsonGenerator.writeNumberField("price", product.getPrice().setScale(2, RoundingMode.HALF_UP));
+        jsonGenerator.writeStringField("createdBy", product.getCreatedBy().getName());
         jsonGenerator.writeEndObject();
     }
 }

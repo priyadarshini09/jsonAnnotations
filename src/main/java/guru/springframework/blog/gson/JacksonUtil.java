@@ -19,6 +19,7 @@ public class JacksonUtil {
             System.out.println(product.getDescription());
             System.out.println(product.getImageUrl());
             System.out.println(product.getPrice());
+            System.out.println(product.getCreatedBy());
         }
 
         return product;
@@ -30,4 +31,12 @@ public class JacksonUtil {
         System.out.println(json);
         return json;
     }
+
+    public static String jsonSerializeWithJsonIgnore(Product product) throws JsonProcessingException{
+        ObjectMapper objectMapper = new ObjectMapper();
+        String json = objectMapper.writeValueAsString(product);
+        System.out.println(json);
+        return json;
+    }
+
 }

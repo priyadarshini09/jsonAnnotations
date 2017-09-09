@@ -1,5 +1,8 @@
 package guru.springframework.blog.gson.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import guru.springframework.blog.gson.custom.CustomProductDeserializer;
@@ -11,21 +14,27 @@ import java.math.BigDecimal;
 @JsonDeserialize(using = CustomProductDeserializer.class)
 public class Product {
     private String productId;
+    @JsonIgnore
     private String description;
     private String imageUrl;
     //private String version;
     private BigDecimal price;
+    private User createdBy;
     public Product(){}
-    public Product(String productId, String description, String imageUrl, BigDecimal price) {
+    public Product(String productId, String description, String imageUrl, BigDecimal price, User createdBy) {
         this.productId = productId;
         this.description = description;
         this.imageUrl = imageUrl;
         this.price = price;
+        this.createdBy = createdBy;
     }
+
+    @JsonProperty
     public String getDescription() {
         return description;
     }
 
+    @JsonIgnore
     public void setDescription(String description) {
         this.description = description;
     }
@@ -59,6 +68,13 @@ public class Product {
     public void setVersion(String version) { this.version = version; }*/
 
 
+    public User getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(User createdBy) {
+        this.createdBy = createdBy;
+    }
 
     @Override
     public String toString() {
@@ -67,6 +83,7 @@ public class Product {
                 ", description='" + description + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
                 ", price=" + price +
+                ", createdBy=" + createdBy +
                 '}';
     }
 }
