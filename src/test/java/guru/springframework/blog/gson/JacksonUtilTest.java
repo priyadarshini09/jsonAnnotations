@@ -40,5 +40,5 @@ public class JacksonUtilTest {
         assertEquals("\"price\":18.95".trim(), result.replace("{", "").replace("}","").split(",")[3].trim());
     }*/
 
-    
+
 }
