@@ -1,16 +1,16 @@
 package guru.springframework.blog.gson.domain;
 
-import com.google.gson.annotations.Expose;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import guru.springframework.blog.gson.custom.CustomProductDeserialization;
+
 import java.math.BigDecimal;
 
-
+@JsonDeserialize(using = CustomProductDeserialization.class)
 public class Product {
     private String productId;
     private String description;
-    @Expose (serialize = false, deserialize = true)
     private String imageUrl;
-    private transient String version;
-    @Expose
+    //private String version;
     private BigDecimal price;
     public Product(){}
     public Product(String productId, String description, String imageUrl, BigDecimal price) {
@@ -51,9 +51,9 @@ public class Product {
         this.price = price;
     }
 
-    public String getVersion() { return version; }
+    /*public String getVersion() { return version; }
 
-    public void setVersion(String version) { this.version = version; }
+    public void setVersion(String version) { this.version = version; }*/
 
 
 

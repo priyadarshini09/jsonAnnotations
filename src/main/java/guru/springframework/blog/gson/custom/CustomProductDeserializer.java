@@ -1,3 +1,4 @@
+/*
 package guru.springframework.blog.gson.custom;
 
 import com.google.gson.*;
@@ -30,3 +31,4 @@ public class CustomProductDeserializer implements JsonDeserializer<Product>{
         return product;
     }
 }
+*/

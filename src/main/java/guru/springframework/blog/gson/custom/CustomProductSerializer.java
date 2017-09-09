@@ -1,3 +1,4 @@
+/*
 package guru.springframework.blog.gson.custom;
 
 import com.google.gson.JsonElement;
@@ -21,3 +22,4 @@ public class CustomProductSerializer implements JsonSerializer<Product> {
         return jsonObject;
     }
 }
+*/

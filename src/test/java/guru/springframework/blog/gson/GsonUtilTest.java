@@ -1,3 +1,4 @@
+/*
 package guru.springframework.blog.gson;
 
 import guru.springframework.blog.gson.domain.Product;
@@ -80,4 +81,4 @@ public class GsonUtilTest {
         assertEquals(new BigDecimal(14), product.getPrice());
     }
 
-}
+}*/

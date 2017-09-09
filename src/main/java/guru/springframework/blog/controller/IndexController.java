@@ -1,18 +1,20 @@
 package guru.springframework.blog.controller;
 
+/*
 import guru.springframework.blog.gson.domain.Product;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.MediaType;
+*/
 
 import java.math.BigDecimal;
 import java.util.*;
 
-@RestController
+
 public class IndexController {
-    @RequestMapping(value = "/",
+    /*@RequestMapping(value = "/",
             produces = { MediaType.APPLICATION_JSON_VALUE },
             method = RequestMethod.GET)
     public ResponseEntity<Product> getProduct() {
@@ -25,5 +27,5 @@ public class IndexController {
         product.setPrice(BigDecimal.valueOf(val));
         return new ResponseEntity<Product>(product, HttpStatus.OK);
     }
-
+*/
 }
